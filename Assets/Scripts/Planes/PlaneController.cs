@@ -40,6 +40,10 @@ public class PlaneController : MonoBehaviour
 
     public void AssignPath(Line line)
     {
+        if (activeLine != null)
+        {
+            clearPath();
+        }
         activeLine = line;
         currentPath = activeLine.ReturnPath();
     }
@@ -54,9 +58,7 @@ public class PlaneController : MonoBehaviour
             currentTargetIndex++;
             if (currentTargetIndex >= currentPath.Count)
             {
-                currentTargetIndex = 0;
-                currentPath = null;
-                Destroy(activeLine.gameObject);
+                clearPath();
                 return; // End of path
             }
         }
@@ -74,5 +76,13 @@ public class PlaneController : MonoBehaviour
         // Smooth rotation
         float newAngle = Mathf.LerpAngle(transform.eulerAngles.z, targetAngle, turnSpeed * Time.fixedDeltaTime);
         transform.rotation = Quaternion.Euler(0, 0, newAngle);
+    }
+
+    void clearPath()
+    {
+        currentTargetIndex = 0;
+        currentPath = null;
+        Destroy(activeLine.gameObject);
+        activeLine = null;
     }
 }
