@@ -45,3 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linePrefab: {fileID: 619112075502073411, guid: 2ed5d9fa873863a4bb5c1f6df08e63ff, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
