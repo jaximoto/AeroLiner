@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 905625037}
   - component: {fileID: 905625035}
+  - component: {fileID: 905625038}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -148,9 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f2fd320c1bfca42808ab597e1cdee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool:
-  - prefab: {fileID: 0}
-    size: 0
+  pool: []
 --- !u!4 &905625037
 Transform:
   m_ObjectHideFlags: 0
@@ -166,6 +165,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &905625038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905625034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef5474576903974483930e2d1c96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1848233042}
+  padd: 1
 --- !u!1 &1848233040
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +191,6 @@ GameObject:
   - component: {fileID: 1848233042}
   - component: {fileID: 1848233041}
   - component: {fileID: 1848233044}
-  - component: {fileID: 1848233045}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -304,18 +316,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &1848233045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848233040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2b64695ae61c2c4fb0aa5cdc607b42c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
