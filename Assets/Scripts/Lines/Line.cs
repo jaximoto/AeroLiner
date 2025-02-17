@@ -5,9 +5,10 @@ using System.Linq;
 public class Line : MonoBehaviour
 {
     public LineRenderer _lineRenderer;
+    public GameObject AssignedPlane;
 
     List<Vector2> linePoints;
-
+    
     /// <summary>
     /// Updates linePoints list with a new point, initializes list if this is first point.
     /// </summary>
@@ -39,6 +40,11 @@ public class Line : MonoBehaviour
 
         _lineRenderer.positionCount = linePoints.Count;
         _lineRenderer.SetPosition(linePoints.Count - 1, point);
+    }
+
+    public List<Vector2> ReturnPath()
+    {
+        return linePoints.ToList();
     }
    
 }

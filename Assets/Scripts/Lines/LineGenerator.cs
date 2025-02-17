@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LineGenerator : MonoBehaviour
@@ -7,6 +8,7 @@ public class LineGenerator : MonoBehaviour
 
     // private vars
     Line activeLine;
+    PlaneController activePlane;
     RaycastHit2D hit;
     
     
@@ -32,20 +34,33 @@ public class LineGenerator : MonoBehaviour
             if (hit.collider != null)
             {
                 GameObject newLine = Instantiate(linePrefab);
+                newLine.transform.parent = hit.transform;
                 activeLine = newLine.GetComponent<Line>();
+
+                // assign plane to line
+                activeLine.AssignedPlane = hit.collider.gameObject;
+                // assign line to plane
+                activePlane = hit.collider.GetComponent<PlaneController>();
+                
+               
+
             }
            
         }
 
         if (Input.GetMouseButtonUp(0)) 
         {
+            // take a shallow copy of line points and plane controller can go through the points as the line adds them to line points?
+            activePlane.AssignPath(activeLine);
             activeLine = null;
+            activePlane = null;
         }
 
         if (activeLine != null)
         {
             
             activeLine.UpdateLine(mousePos);
+
         }
     }
 }
