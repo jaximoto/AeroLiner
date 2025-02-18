@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections;
 public class SpawnArea : MonoBehaviour
 {
+    
+
+
     public Camera cam;
     public float padd;
 
@@ -22,7 +25,7 @@ public class SpawnArea : MonoBehaviour
     public class SpawnDirs
     {
         public Vector2 spawnPos;
-        //public Transform lookTrans;
+        public float spawnRot;
     }
 
 
@@ -92,13 +95,13 @@ public class SpawnArea : MonoBehaviour
                 yDiff = camRect.yMax - randPos.y;
                 if (xDiff <= yDiff)
                 {
-                    rot = 180;
+                    rot = 90;
                     spawnX = spawnRect.xMax;
                     spawnY = randPos.y;
                 }
                 else
                 {
-                    rot = 270;
+                    rot = 180;
                     spawnX = randPos.x;
                     spawnY = spawnRect.yMax;
                 }
@@ -108,13 +111,13 @@ public class SpawnArea : MonoBehaviour
                 yDiff = camRect.yMin - randPos.y;
                 if (xDiff <= yDiff)
                 {
-                    rot = 180;
+                    rot = 90;
                     spawnX = spawnRect.xMax;
                     spawnY = randPos.y;
                 }
                 else
                 {
-                    rot = 90;
+                    rot = 0;
                     spawnX = randPos.x;
                     spawnY = spawnRect.yMin;
                 }
@@ -128,13 +131,13 @@ public class SpawnArea : MonoBehaviour
                 yDiff = camRect.yMax - randPos.y;
                 if (xDiff <= yDiff)
                 {
-                    rot = 0; 
+                    rot = 270; 
                     spawnX = spawnRect.xMin;
                     spawnY = randPos.y;
                 }
                 else
                 {
-                    rot = 270;
+                    rot = 180;
                     spawnX = randPos.x;
                     spawnY = spawnRect.yMax;
                 }
@@ -144,13 +147,13 @@ public class SpawnArea : MonoBehaviour
                 yDiff = camRect.yMin - randPos.y;
                 if (xDiff <= yDiff)
                 {
-                    rot = 0;
+                    rot = 270;
                     spawnX = spawnRect.xMin;
                     spawnY = randPos.y;
                 }
                 else
                 {
-                    rot = 90;
+                    rot = 0;
                     spawnX = randPos.x;
                     spawnY = spawnRect.yMin;
                 }
@@ -158,11 +161,15 @@ public class SpawnArea : MonoBehaviour
         }
         SpawnDirs spawnDir = new SpawnDirs();
         spawnDir.spawnPos = new Vector2(spawnX, spawnY);
-        lookAt.transform.position = randPos;      
+        spawnDir.spawnRot = rot;
+        lookAt.transform.position = randPos;
+
         return spawnDir;
     }
 
 
+
+    //tester for spawning, currently takes a test plane object and moves it, changing the rotation
     private IEnumerator WaitAndSpawn()
     {
         while (spawnCount <= spawnMax)
@@ -170,7 +177,8 @@ public class SpawnArea : MonoBehaviour
             SpawnDirs dir = RandomSpawn();
 
             testPlane.transform.position = dir.spawnPos;
-            testPlane.transform.LookAt(lookAt.transform);
+            testPlane.transform.rotation = Quaternion.Euler(0, 0, dir.spawnRot);
+            
             spawnCount++;
             yield return new WaitForSeconds(waitBetweenSpawns);
         }
