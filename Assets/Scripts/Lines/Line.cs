@@ -6,9 +6,9 @@ public class Line : MonoBehaviour
 {
     public LineRenderer _lineRenderer;
     public GameObject AssignedPlane;
-
-    List<Vector2> linePoints;
     
+    [SerializeField] public List<Vector2> linePoints { get; private set; }
+
     /// <summary>
     /// Updates linePoints list with a new point, initializes list if this is first point.
     /// </summary>
@@ -42,9 +42,49 @@ public class Line : MonoBehaviour
         _lineRenderer.SetPosition(linePoints.Count - 1, point);
     }
 
-    public List<Vector2> ReturnPath()
+    /*public List<Vector2> ReturnPath()
     {
         return linePoints.ToList();
     }
-   
+    */
+    public void RemovePoint(int index)
+    {
+        linePoints.RemoveAt(index);
+        int newPositionCount = _lineRenderer.positionCount - 1;
+        RemovePointLine(index);
+        //_lineRenderer.positionCount = linePoints.Count;
+
+
+    }
+
+    // Removes the first point and shifts all the others
+    // Removes the first point and shifts all the others
+    int firstPointIndex = 0;
+    void RemovePointLine(int index)
+    {
+        if (_lineRenderer.positionCount <= 1)
+            return;
+
+        // Loop through the points to find the first point the plane has reached or passed
+        int indexToDeleteBefore = index;
+       
+
+        // If no point is found (the plane hasn't reached any point yet), exit
+        if (indexToDeleteBefore == -1)
+            return;
+
+        // Create a new list of positions, excluding the points before indexToDeleteBefore
+        var positions = new Vector3[_lineRenderer.positionCount - indexToDeleteBefore];
+
+        // Copy the positions from indexToDeleteBefore onward into the new array
+        for (int i = indexToDeleteBefore; i < _lineRenderer.positionCount; i++)
+        {
+            positions[i - indexToDeleteBefore] = _lineRenderer.GetPosition(i);
+        }
+
+        // Set the new position array back to the LineRenderer
+        _lineRenderer.positionCount = positions.Length;
+        _lineRenderer.SetPositions(positions);
+    }
+
 }

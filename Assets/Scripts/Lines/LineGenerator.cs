@@ -5,13 +5,13 @@ public class LineGenerator : MonoBehaviour
 {
     public GameObject linePrefab;
     public LayerMask layerMask;
-
+    public int maxLineLength = 100;
     // private vars
-    Line activeLine;
-    PlaneController activePlane;
+    public Line activeLine;
+    public PlaneController activePlane;
     RaycastHit2D hit;
-    
-    
+
+    public int lineCount = 0;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,10 +39,11 @@ public class LineGenerator : MonoBehaviour
 
                 // assign plane to line
                 activeLine.AssignedPlane = hit.collider.gameObject;
+                
                 // assign line to plane
                 activePlane = hit.collider.GetComponent<PlaneController>();
-                
-               
+                StartCoroutine(activePlane.AssignPath(activeLine));
+
 
             }
            
@@ -50,17 +51,34 @@ public class LineGenerator : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0)) 
         {
-            // take a shallow copy of line points and plane controller can go through the points as the line adds them to line points?
-            activePlane.AssignPath(activeLine);
-            activeLine = null;
-            activePlane = null;
+            
+           ResetLine();
+            
         }
 
         if (activeLine != null)
         {
-            
+            lineCount++;
             activeLine.UpdateLine(mousePos);
 
+            if (lineCount >= maxLineLength)
+            {
+                ResetLine();
+            }
+            /*
+            if (lineCount == 10)
+            {
+                activePlane.AssignPath(activeLine);
+            }
+            */
+            //activePlane.AssignPath(activeLine);
         }
+    }
+
+    void ResetLine()
+    {
+        activeLine = null;
+        activePlane = null;
+        lineCount = 0;
     }
 }

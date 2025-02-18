@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class PlaneController : MonoBehaviour
     public float turnSpeed;
     public Line activeLine;
     public List<Vector2> currentPath;
+    public bool lineWasAssigned = false;
+    public float pathDelay = .75f;
     
     Rigidbody2D rb;
     int currentTargetIndex = 0;
@@ -22,7 +25,11 @@ public class PlaneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (lineWasAssigned)
+        {
+            FollowPath();
+        }
+        
     }
 
     private void FixedUpdate()
@@ -35,26 +42,46 @@ public class PlaneController : MonoBehaviour
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
 
-        FollowPath();
+        
     }
-
-    public void AssignPath(Line line)
+    // Okay so plane needs to know when line isn't done so it can wait to destroy a line, maybe like .5f secs
+    // Maybe set a boolean that a couroutine launched by assign path sets to true
+    public IEnumerator AssignPath(Line line)
     {
+        Debug.Log("Called Assign Path");
+        
         if (activeLine != null)
         {
             clearPath();
+            
         }
+
+        yield return StartCoroutine(WaitForSeconds(pathDelay));
         activeLine = line;
-        currentPath = activeLine.ReturnPath();
+        
+        currentPath = activeLine.linePoints;
+        foreach (var point in currentPath)
+        {
+            Debug.Log(point.ToString());
+        }
+
+        lineWasAssigned = true;
+        
     }
+    
     public void FollowPath()
     {
         if (currentPath == null || currentPath.Count == 0)
+        {
+            Debug.Log("Current path is null or count is 0");
             return;
+        }
 
+        Debug.Log("Made it past null check in followPath");
         // Check if the plane has reached the current point
         if (Vector2.Distance(transform.position, currentPath[currentTargetIndex]) < switchDistance)
         {
+            //activeLine.RemovePoint(currentTargetIndex);
             currentTargetIndex++;
             if (currentTargetIndex >= currentPath.Count)
             {
@@ -84,5 +111,15 @@ public class PlaneController : MonoBehaviour
         currentPath = null;
         Destroy(activeLine.gameObject);
         activeLine = null;
+        lineWasAssigned = false;
+    }
+    IEnumerator WaitForSeconds(float seconds)
+    {
+        float timePassed = 0f;
+        while (timePassed < seconds)
+        {
+            timePassed += Time.deltaTime;
+            yield return null;
+        }
     }
 }
