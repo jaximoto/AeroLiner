@@ -672,10 +672,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 852992182}
     - target: {fileID: 6083234180647044430, guid: 8efdca6adf41e594a8e8e87128432c5d, type: 3}
-      propertyPath: spawnMax
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6083234180647044430, guid: 8efdca6adf41e594a8e8e87128432c5d, type: 3}
       propertyPath: testPlane
       value: 
       objectReference: {fileID: 1684571618}

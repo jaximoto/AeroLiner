@@ -69,4 +69,4 @@ MonoBehaviour:
   testPlane: {fileID: 0}
   lookAt: {fileID: 0}
   waitBetweenSpawns: 1
-  spawnMax: 20
+  spawnMax: 1
