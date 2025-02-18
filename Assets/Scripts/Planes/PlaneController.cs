@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlaneController : MonoBehaviour
 {
+    public Color planeColor;
     public float _speed;
     public float maxSpeed;
     public float switchDistance;
@@ -15,11 +16,13 @@ public class PlaneController : MonoBehaviour
     public float pathDelay = .75f;
     
     Rigidbody2D rb;
+    SpriteRenderer sprite;
     int currentTargetIndex = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -121,5 +124,11 @@ public class PlaneController : MonoBehaviour
             timePassed += Time.deltaTime;
             yield return null;
         }
+    }
+
+    public void ApplyColor(Color color)
+    {
+        planeColor = color;
+        sprite.color = planeColor;
     }
 }
