@@ -60,3 +60,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   padd: 1
+  spawnRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  testPlane: {fileID: 0}
+  lookAt: {fileID: 0}
+  waitBetweenSpawns: 1
+  spawnMax: 1

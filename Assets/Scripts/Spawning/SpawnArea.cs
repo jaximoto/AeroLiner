@@ -1,29 +1,52 @@
 using UnityEngine;
-
+using System.Collections;
 public class SpawnArea : MonoBehaviour
 {
+    
+
+
     public Camera cam;
     public float padd;
 
-    Rect spawnRect;
+    public Rect spawnRect;
     Rect camRect;
+
+
+    //Test Objects
+    public GameObject testPlane;
+    public GameObject lookAt;
+
+    public float waitBetweenSpawns;
+    int spawnCount;
+    public int spawnMax;
+
+
+
+    public class SpawnDirs
+    {
+        public Vector2 spawnPos;
+        public float spawnRot;
+    }
+
+
 
 
     void Awake()
     {
         cam = Camera.main;
+        GetSpawnBounds();
+        StartCoroutine(WaitAndSpawn());
     }
 
     void Start()
     {
-        GetSpawnBounds();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-}
+        //testPlane.transform.position = RandomSpawn();
     }
 
 
@@ -48,7 +71,7 @@ public class SpawnArea : MonoBehaviour
 
     }
 
-    public Vector2 RandomSpawn() 
+    public SpawnDirs RandomSpawn() 
     {
         Vector2 randPos = new Vector2(Random.Range(camRect.xMin, camRect.xMax), Random.Range(camRect.yMin, camRect.yMax));
         Debug.Log($"randompos is {randPos}");
@@ -58,7 +81,8 @@ public class SpawnArea : MonoBehaviour
         float yDiff;
 
         float spawnX;
-        float spawnY; 
+        float spawnY;
+        float rot;
 
 
         // DO NOT TOUCH!!!!!!!
@@ -71,11 +95,13 @@ public class SpawnArea : MonoBehaviour
                 yDiff = camRect.yMax - randPos.y;
                 if (xDiff <= yDiff)
                 {
+                    rot = 90;
                     spawnX = spawnRect.xMax;
                     spawnY = randPos.y;
                 }
                 else
                 {
+                    rot = 180;
                     spawnX = randPos.x;
                     spawnY = spawnRect.yMax;
                 }
@@ -85,11 +111,13 @@ public class SpawnArea : MonoBehaviour
                 yDiff = camRect.yMin - randPos.y;
                 if (xDiff <= yDiff)
                 {
+                    rot = 90;
                     spawnX = spawnRect.xMax;
                     spawnY = randPos.y;
                 }
                 else
                 {
+                    rot = 0;
                     spawnX = randPos.x;
                     spawnY = spawnRect.yMin;
                 }
@@ -103,11 +131,13 @@ public class SpawnArea : MonoBehaviour
                 yDiff = camRect.yMax - randPos.y;
                 if (xDiff <= yDiff)
                 {
+                    rot = 270; 
                     spawnX = spawnRect.xMin;
                     spawnY = randPos.y;
                 }
                 else
                 {
+                    rot = 180;
                     spawnX = randPos.x;
                     spawnY = spawnRect.yMax;
                 }
@@ -117,17 +147,43 @@ public class SpawnArea : MonoBehaviour
                 yDiff = camRect.yMin - randPos.y;
                 if (xDiff <= yDiff)
                 {
+                    rot = 270;
                     spawnX = spawnRect.xMin;
                     spawnY = randPos.y;
                 }
                 else
                 {
+                    rot = 0;
                     spawnX = randPos.x;
                     spawnY = spawnRect.yMin;
                 }
             }
         }
-        Vector2 spawnPoint = new Vector2(spawnX, spawnY);
-        return spawnPoint;
+        SpawnDirs spawnDir = new SpawnDirs();
+        spawnDir.spawnPos = new Vector2(spawnX, spawnY);
+        spawnDir.spawnRot = rot;
+        lookAt.transform.position = randPos;
+
+        return spawnDir;
     }
+
+
+
+    //tester for spawning, currently takes a test plane object and moves it, changing the rotation
+    private IEnumerator WaitAndSpawn()
+    {
+        while (spawnCount <= spawnMax)
+        {
+            SpawnDirs dir = RandomSpawn();
+
+            testPlane.transform.position = dir.spawnPos;
+            testPlane.transform.rotation = Quaternion.Euler(0, 0, dir.spawnRot);
+            
+            spawnCount++;
+            yield return new WaitForSeconds(waitBetweenSpawns);
+        }
+
+        if (spawnCount > spawnMax) yield return null;
+    }
+
 }
