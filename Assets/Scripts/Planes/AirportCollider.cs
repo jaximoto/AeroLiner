@@ -3,13 +3,19 @@ using UnityEngine;
 
 public class AirportCollider : MonoBehaviour
 {
+    public Color color;
     public Vector3 landingScale = new Vector3(.04f, .04f, 1f);
     public float duration = 1f;
-    public float requiredAngleThreshold = 0.9f;
+    float requiredAngleThreshold;
 
     /*
      * Also need to add some kind of global score later
      */
+
+    private void Start()
+    {
+        requiredAngleThreshold = Component.FindFirstObjectByType<GameSettings>().AngleThreshold;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Collided with something");
@@ -53,15 +59,19 @@ public class AirportCollider : MonoBehaviour
 
     private IEnumerator OrchestrateLanding(GameObject plane)
     {
-        yield return StartCoroutine(plane.GetComponent<PlaneController>().StartLanding(landingScale, duration));
-        Destroy(plane);
+        if (IsValidPlane(plane))
+        {
+            yield return StartCoroutine(plane.GetComponent<PlaneController>().StartLanding(landingScale, duration));
+            Destroy(plane);
+        } 
+        
     }
 
     private bool IsValidLandingApproach(PlaneController plane)
     {
         Rigidbody2D rb = plane.GetComponent<Rigidbody2D>();
         if (rb == null) return false;
-
+        
         Vector2 planeVelocity = rb.linearVelocity.normalized;
         Vector2 landingDirection = -transform.up.normalized; // Assumes the trigger is rotated correctly
 
@@ -69,6 +79,15 @@ public class AirportCollider : MonoBehaviour
         float approachDot = Vector2.Dot(planeVelocity, landingDirection);
 
         return approachDot >= requiredAngleThreshold;
+    }
+
+    private bool IsValidPlane(GameObject plane)
+    {
+        if (plane.GetComponent<SpriteRenderer>().color == color)
+        {
+            return true;
+        }
+        return false;
     }
 
 }
