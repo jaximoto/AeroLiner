@@ -131,4 +131,11 @@ public class PlaneController : MonoBehaviour
         planeColor = color;
         sprite.color = planeColor;
     }
+
+    public IEnumerator StartLanding()
+    {
+
+        //transform.localScale.Scale()
+        yield return null;
+    }
 }
