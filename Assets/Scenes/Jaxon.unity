@@ -642,17 +642,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
-    - target: {fileID: 4320243667151263483, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4774884573452144723, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.5
+      value: -6.546
       objectReference: {fileID: 0}
     - target: {fileID: 4774884573452144723, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.55
+      value: -1.542
       objectReference: {fileID: 0}
     - target: {fileID: 4774884573452144723, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
       propertyPath: m_LocalPosition.z
