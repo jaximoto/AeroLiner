@@ -120,7 +120,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
@@ -147,9 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5d113f313d2bd4eab59a8dc0dfc042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
   landingScale: {x: 0.045, y: 0.045, z: 1}
   duration: 1
-  requiredAngleThreshold: 0.9
 --- !u!1 &6119354332939583335
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 936302242241302222}
   - component: {fileID: 137684011277879037}
+  - component: {fileID: 4654251684813072955}
   - component: {fileID: 591846210747781256}
   m_Layer: 0
   m_Name: Airport
@@ -240,6 +241,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4654251684813072955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6119354332939583335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160eeb6b9d2117545827c94e6857c5d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!50 &591846210747781256
 Rigidbody2D:
   serializedVersion: 5
@@ -414,6 +428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5d113f313d2bd4eab59a8dc0dfc042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
   landingScale: {x: 0.045, y: 0.045, z: 1}
   duration: 1
-  requiredAngleThreshold: 0.8

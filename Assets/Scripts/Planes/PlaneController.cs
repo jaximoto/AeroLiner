@@ -49,6 +49,20 @@ public class PlaneController : MonoBehaviour
 
         
     }
+   
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collided with " + collision.ToString());
+        if (collision.gameObject.layer == 6 || collision.gameObject.layer == 7)
+        {
+            // Hit another plane
+            // Destroy yourself and end game
+            Destroy(gameObject);
+        }
+
+        
+    }
     // Okay so plane needs to know when line isn't done so it can wait to destroy a line, maybe like .5f secs
     // Maybe set a boolean that a couroutine launched by assign path sets to true
     public IEnumerator AssignPath(Line line)

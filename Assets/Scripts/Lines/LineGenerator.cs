@@ -27,21 +27,23 @@ public class LineGenerator : MonoBehaviour
         // get mouse position
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
        
-        // Check if clicking left mouse button and on a plane
+        // Check if clicking left mouse button and on a plane collider
         if (Input.GetMouseButtonDown(0))
         {
-            hit = Physics2D.Raycast(mousePos, Vector2.zero, layerMask);
+            hit = Physics2D.Raycast(mousePos, Vector2.down, Mathf.Infinity, layerMask);
             if (hit.collider != null)
             {
+                // Get collider's parent
+                GameObject plane = hit.collider.transform.parent.gameObject;
                 GameObject newLine = Instantiate(linePrefab);
-                newLine.transform.parent = hit.transform;
+                newLine.transform.parent = plane.transform;
                 activeLine = newLine.GetComponent<Line>();
 
                 // assign plane to line
-                activeLine.AssignedPlane = hit.collider.gameObject;
+                activeLine.AssignedPlane = plane;
                 
                 // assign line to plane
-                activePlane = hit.collider.GetComponent<PlaneController>();
+                activePlane = plane.GetComponent<PlaneController>();
                 StartCoroutine(activePlane.AssignPath(activeLine));
 
 
