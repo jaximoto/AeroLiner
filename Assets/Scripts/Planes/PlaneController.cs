@@ -18,11 +18,13 @@ public class PlaneController : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sprite;
     int currentTargetIndex = 0;
+    Transform _transform;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        _transform = GetComponent<Transform>(); 
     }
 
     // Update is called once per frame
@@ -65,7 +67,7 @@ public class PlaneController : MonoBehaviour
         currentPath = activeLine.linePoints;
         foreach (var point in currentPath)
         {
-            Debug.Log(point.ToString());
+            //Debug.Log(point.ToString());
         }
 
         lineWasAssigned = true;
@@ -76,11 +78,11 @@ public class PlaneController : MonoBehaviour
     {
         if (currentPath == null || currentPath.Count == 0)
         {
-            Debug.Log("Current path is null or count is 0");
+            //Debug.Log("Current path is null or count is 0");
             return;
         }
 
-        Debug.Log("Made it past null check in followPath");
+        //Debug.Log("Made it past null check in followPath");
         // Check if the plane has reached the current point
         if (Vector2.Distance(transform.position, currentPath[currentTargetIndex]) < switchDistance)
         {
@@ -130,5 +132,17 @@ public class PlaneController : MonoBehaviour
     {
         planeColor = color;
         sprite.color = planeColor;
+    }
+
+
+    
+    public IEnumerator StartLanding(Vector3 targetScale, float duration)
+    {
+        
+        LeanTween.scale(gameObject, targetScale, duration).setEase(LeanTweenType.easeInQuad);
+        // Wait until the tween is finished
+        yield return new WaitUntil(() => !LeanTween.isTweening(gameObject));
+
+        yield return WaitForSeconds(duration / 2);
     }
 }
