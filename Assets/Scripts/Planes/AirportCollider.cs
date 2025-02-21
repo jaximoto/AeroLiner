@@ -80,7 +80,7 @@ public class AirportCollider : MonoBehaviour
 
             yield return new WaitUntil(() => planeRotated);
             //Debug.Log("PlaneRotated");
-            Destroy(plane);
+            plane.SetActive(false);
             gameSettings.IncrementPlaneCount();
 
         } 

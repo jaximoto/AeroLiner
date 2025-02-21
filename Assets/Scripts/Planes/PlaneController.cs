@@ -38,6 +38,7 @@ public class PlaneController : MonoBehaviour
             FollowPath();
         }
         
+        
     }
 
     private void FixedUpdate()
@@ -52,8 +53,11 @@ public class PlaneController : MonoBehaviour
 
         
     }
-   
 
+    private void OnBecameInvisible()
+    {
+        gameObject.SetActive(false);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log("Collided with " + collision.gameObject.name);
@@ -73,7 +77,7 @@ public class PlaneController : MonoBehaviour
         sprite.sprite = null;
         // Call end of game function
         gameSettings.gameEnded = true;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
     // Okay so plane needs to know when line isn't done so it can wait to destroy a line, maybe like .5f secs
     // Maybe set a boolean that a couroutine launched by assign path sets to true
