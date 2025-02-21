@@ -10,10 +10,11 @@ public class AirportCollider : MonoBehaviour
     float rotationSpeed;
     bool planeRotated = false;
     GameObject planeCountUI;
+    GameSettings gameSettings;
 
     private void Start()
     {
-        GameSettings gameSettings = Component.FindFirstObjectByType<GameSettings>();
+        gameSettings = Component.FindFirstObjectByType<GameSettings>();
         requiredAngleThreshold = gameSettings.AngleThreshold;
         rotationSpeed = gameSettings.planeRotationSpeed;
         //planeCountUI = GameObject.Find("PlaneCount");
@@ -38,7 +39,7 @@ public class AirportCollider : MonoBehaviour
                 Debug.Log("Landing Plane");
                 float angleDifference = Vector2.SignedAngle(planeVelocity, landingDirection);
                 StartCoroutine(OrchestrateLanding(collision.gameObject, angleDifference));
-
+                
             }
 
             else
@@ -79,7 +80,7 @@ public class AirportCollider : MonoBehaviour
 
             yield return new WaitUntil(() => planeRotated);
             Destroy(plane);
-            
+            gameSettings.IncrementPlaneCount();
 
         } 
         
@@ -105,7 +106,7 @@ public class AirportCollider : MonoBehaviour
 
             while (Mathf.Abs(Mathf.DeltaAngle(rb.rotation, targetRotation)) > 0.3f) // Looser threshold
             {
-                Debug.Log("Still in while loop");
+                //Debug.Log("Still in while loop");
                 rb.MoveRotation(Mathf.MoveTowardsAngle(rb.rotation, targetRotation, rotationSpeed * 20 * Time.deltaTime));
                 yield return null;
             }

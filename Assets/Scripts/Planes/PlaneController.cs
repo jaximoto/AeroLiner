@@ -55,7 +55,7 @@ public class PlaneController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collided with " + collision.gameObject.name);
+        //Debug.Log("Collided with " + collision.gameObject.name);
         if (collision.gameObject.layer == 6 || collision.gameObject.layer == 7)
         {
             // Hit another plane
@@ -78,7 +78,7 @@ public class PlaneController : MonoBehaviour
     // Maybe set a boolean that a couroutine launched by assign path sets to true
     public IEnumerator AssignPath(Line line)
     {
-        Debug.Log("Called Assign Path");
+        //Debug.Log("Called Assign Path");
         
         if (activeLine != null)
         {
