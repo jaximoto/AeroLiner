@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 4303554818815530579}
   m_Layer: 6
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0877aa3717e662c4bab273454052a8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorIndex: 0
+  planeColor: {r: 0, g: 0, b: 0, a: 0}
   _speed: 5
   maxSpeed: 0.8
   switchDistance: 0.5

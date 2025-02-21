@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2695633797413847364}
   m_Layer: 7
   m_Name: Satellite
-  m_TagString: Untagged
+  m_TagString: Satellie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

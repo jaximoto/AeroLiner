@@ -16,6 +16,9 @@ public class GameSettings : MonoBehaviour
     public float AngleThreshold;
     public float planeRotationSpeed;
 
+    //cameraZoom
+    public float zoomMax;
+
     // End Game Settings
     public float GameOverUIFadeInDuration;
 

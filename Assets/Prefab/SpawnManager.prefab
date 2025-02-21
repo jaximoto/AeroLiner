@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5910084793422849507}
   - component: {fileID: 6083234180647044430}
   - component: {fileID: 8354357676471431375}
+  - component: {fileID: 8555912310357686043}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -46,7 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f2fd320c1bfca42808ab597e1cdee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool: []
+  pool:
+  - prefab: {fileID: 2927899634893221273, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
+    size: 10
+  - prefab: {fileID: 3222158834864023541, guid: 08316913bf51a4a43931d5dcce71c5bb, type: 3}
+    size: 10
 --- !u!114 &6083234180647044430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,10 +88,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7a1aa5eab44354b9c9f6b192f0cf71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn_0:
-  - tag: 
-    size: 0
-  spawn_1: []
-  spawn_2: []
-  spawn_3: []
-  spawn_4: []
+  zoom: {fileID: 0}
+  spawns_0:
+  - tag: Plane
+    size: 10
+  - tag: Satellite
+    size: 5
+  spawns_1:
+  - tag: Plane
+    size: 10
+  spawns_2: []
+  spawns_3: []
+  spawns_4: []
+--- !u!114 &8555912310357686043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7814503008435374010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b64695ae61c2c4fb0aa5cdc607b42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool: {fileID: 5910084793422849507}
+  spawnArea: {fileID: 6083234180647044430}
+  spawnTable: {fileID: 8354357676471431375}
+  spawnMax: 10
