@@ -3,11 +3,21 @@ using System.Collections;
 
 public class CameraZoom : MonoBehaviour
 {
+    GameSettings settings;
+
     Camera cam;
     [SerializeField] private float size;
     public float scale;
-    public float zoom;
+    public float zoomAmount;
     [SerializeField] private bool zooming;
+
+    public int zoomLevel;
+
+    /* TODO
+     * Make the zoom have a tween effect of some sort
+     * add zoomLevel
+     */
+
 
     void Awake()
     {
@@ -41,17 +51,24 @@ public class CameraZoom : MonoBehaviour
 
    private IEnumerator ZoomOut(float nextSize)
    {
+        if (zoomLevel >= settings.zoomMax)
+        {
+            Debug.Log("zoom is at max");
+            yield return null;
+        }
         while (cam.orthographicSize < nextSize) 
         {
-            cam.orthographicSize += zoom;
+            cam.orthographicSize += zoomAmount;
             yield return new WaitForSeconds(Time.deltaTime);
-            Debug.Log("zoomin");
+            //Debug.Log("zoomin");
         }
 
         if (cam.orthographicSize >= nextSize) 
         {
-            Debug.Log("zoom ceasin");
+            //Debug.Log("zoom ceasin");
             cam.orthographicSize = nextSize;
+            zoomLevel += 1;
+            Debug.Log($"zoom level = {zoomLevel}");
             zooming = false;
             yield return null;
         }    
