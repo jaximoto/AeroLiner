@@ -3,9 +3,9 @@ using UnityEditor;
 public class SpawnQueue : MonoBehaviour
 {
 
-    ObjectPool pool;
-    SpawnArea spawnArea;
-
+    public ObjectPool pool;
+    public SpawnArea spawnArea;
+    public SpawnTable spawnTable;
     void Awake()
     {
 
@@ -25,10 +25,14 @@ public class SpawnQueue : MonoBehaviour
     }
 
 
-    void SpawnOffScreen()
+    void SpawnRandom()
     {
-
+        SpawnArea.SpawnDirs spawnDirs = spawnArea.RandomSpawn();
+        string tag = spawnTable.RandomSpawnTag();
+        pool.SpawnFromPool(tag, spawnDirs.spawnPos, new Quaternion(0, 0, spawnDirs.spawnRot, 0));
     }
+
+
 }
     /*
      * we want this script to:

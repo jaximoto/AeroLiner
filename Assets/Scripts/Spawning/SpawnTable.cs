@@ -102,7 +102,7 @@ public class SpawnTable : MonoBehaviour
     }
 
 
-    private string RandomSpawnTag()
+    public string RandomSpawnTag()
     {
         string randTag = spawnTableList[zoom.zoomLevel][Random.Range(0, spawnTableList[zoom.zoomLevel].Count)];
         return randTag;
