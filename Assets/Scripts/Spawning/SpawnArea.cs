@@ -13,8 +13,8 @@ public class SpawnArea : MonoBehaviour
 
 
     //Test Objects
-    public GameObject testPlane;
-    public GameObject lookAt;
+    //public GameObject testPlane;
+    //public GameObject lookAt;
 
     public float waitBetweenSpawns;
     int spawnCount;
@@ -35,7 +35,7 @@ public class SpawnArea : MonoBehaviour
     {
         cam = Camera.main;
         GetSpawnBounds();
-        StartCoroutine(WaitAndSpawn());
+        //StartCoroutine(WaitAndSpawn());
     }
 
     void Start()
@@ -162,13 +162,13 @@ public class SpawnArea : MonoBehaviour
         SpawnDirs spawnDir = new SpawnDirs();
         spawnDir.spawnPos = new Vector2(spawnX, spawnY);
         spawnDir.spawnRot = rot;
-        lookAt.transform.position = randPos;
+        //lookAt.transform.position = randPos;
 
         return spawnDir;
     }
 
 
-
+    /*
     //tester for spawning, currently takes a test plane object and moves it, changing the rotation
     private IEnumerator WaitAndSpawn()
     {
@@ -185,5 +185,5 @@ public class SpawnArea : MonoBehaviour
 
         if (spawnCount > spawnMax) yield return null;
     }
-
+    */
 }
