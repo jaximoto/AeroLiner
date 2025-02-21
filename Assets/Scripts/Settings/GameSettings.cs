@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -41,5 +42,10 @@ public class GameSettings : MonoBehaviour
             endGameUI.interactable = true;
             endGameUI.blocksRaycasts = true;
         });
+    }
+
+    public void ChangeScene(int sceneId)
+    {
+        SceneManager.LoadScene(sceneId);
     }
 }
