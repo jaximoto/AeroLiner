@@ -1004,7 +1004,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 63.620117, y: -43.05005}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3489971916251221448
 CanvasRenderer:
@@ -1034,10 +1034,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Planes Landed
+  m_text: 'Planes Landed: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 41d50863e1d89224e997131f8397b640, type: 2}
-  m_sharedMaterial: {fileID: 7083319081967448618, guid: 41d50863e1d89224e997131f8397b640, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

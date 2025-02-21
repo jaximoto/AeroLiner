@@ -3,22 +3,25 @@ using UnityEngine;
 public class AirportColor : MonoBehaviour
 {
     // May want a enum of common colors
-    public Color color;
+    public int colorIndex;
     Collider2D[] childHitBoxes;
     SpriteRenderer spriteRenderer;
+    GameSettings gameSettings;
     private void Start()
     {
+        gameSettings = FindFirstObjectByType<GameSettings>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         childHitBoxes = GetComponentsInChildren<Collider2D>();
-        ChangeColor(color);
+        ChangeColor(colorIndex);
     }
 
-    public void ChangeColor(Color color)
+    public void ChangeColor(int colorIndex)
     {
-        spriteRenderer.color = color;
+        Color derivedColor = gameSettings.colorTable[colorIndex];
+        spriteRenderer.color = derivedColor;
         foreach(Collider2D child in childHitBoxes)
         {
-            child.GetComponent<AirportCollider>().color = color;
+            child.GetComponent<AirportCollider>().color = derivedColor;
         }
     }
 

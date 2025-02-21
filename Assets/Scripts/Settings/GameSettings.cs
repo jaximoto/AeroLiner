@@ -1,11 +1,18 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
-
+using System.Collections.Generic;
+using TMPro;
 public class GameSettings : MonoBehaviour
 {
-    // Airports
+
+    public int planesLanded = 0;
+    /*
+     * Color Table
+     * 0 = Red
+     */
+    public List<Color> colorTable;
+    // Airports and airplanes
     public float AngleThreshold;
     public float planeRotationSpeed;
 
@@ -15,7 +22,7 @@ public class GameSettings : MonoBehaviour
     public bool gameEnded = false;
     public bool endingGame = false;
     public CanvasGroup endGameUI;
-
+    public TMP_Text planeCountUI;
 
     private void Update()
     {
@@ -23,6 +30,13 @@ public class GameSettings : MonoBehaviour
             EndGame();
     }
 
+    public void IncrementPlaneCount()
+    {
+        planesLanded++;
+        planeCountUI.text = "Planes Landed: " + planesLanded;
+        
+       
+    }
     public void EndGame()
     {
         if (endingGame)
