@@ -7,14 +7,18 @@ public class AirportCollider : MonoBehaviour
     public Vector3 landingScale = new Vector3(.04f, .04f, 1f);
     public float duration = 1f;
     float requiredAngleThreshold;
-
+    float rotationSpeed;
+    bool planeRotated = false;
     /*
      * Also need to add some kind of global score later
      */
 
     private void Start()
     {
-        requiredAngleThreshold = Component.FindFirstObjectByType<GameSettings>().AngleThreshold;
+        GameSettings gameSettings = Component.FindFirstObjectByType<GameSettings>();
+        requiredAngleThreshold = gameSettings.AngleThreshold;
+        rotationSpeed = gameSettings.planeRotationSpeed;
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -70,14 +74,19 @@ public class AirportCollider : MonoBehaviour
     {
         if (IsValidPlane(plane))
         {
-            StartCoroutine(RotatePlane(plane, angleDifference));
+
+            Coroutine rotateCoroutine = StartCoroutine(RotatePlane(plane, angleDifference));
             yield return StartCoroutine(plane.GetComponent<PlaneController>().StartLanding(landingScale, duration));
+
+            yield return new WaitUntil(() => planeRotated);
             Destroy(plane);
+
         } 
         
     }
 
     
+
 
     private bool IsValidPlane(GameObject plane)
     {
@@ -90,19 +99,20 @@ public class AirportCollider : MonoBehaviour
 
     private IEnumerator RotatePlane(GameObject plane, float angleDifference)
     {
-        float rotationSpeed = 100f; // Adjust for smoothness
         Rigidbody2D rb = plane.GetComponent<Rigidbody2D>();
-
         if (rb != null)
         {
-            float targetRotation = rb.rotation - angleDifference;
-            while (Mathf.Abs(Mathf.DeltaAngle(rb.rotation, targetRotation)) > 0.1f) // Keep rotating until close
+            float targetRotation = rb.rotation + angleDifference; // Adjusted to add instead of subtract
+
+            while (Mathf.Abs(Mathf.DeltaAngle(rb.rotation, targetRotation)) > 0.3f) // Looser threshold
             {
-                rb.MoveRotation(Mathf.LerpAngle(rb.rotation, targetRotation, Time.deltaTime * rotationSpeed));
-                yield return null; // Wait for the next frame
+                Debug.Log("Still in while loop");
+                rb.MoveRotation(Mathf.MoveTowardsAngle(rb.rotation, targetRotation, rotationSpeed * 20 * Time.deltaTime));
+                yield return null;
             }
 
-            rb.MoveRotation(targetRotation); // Ensure final alignment
+            rb.MoveRotation(targetRotation); // Final correction
+            planeRotated = true;
         }
     }
 
