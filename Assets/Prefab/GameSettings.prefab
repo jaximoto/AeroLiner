@@ -44,9 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b198817dbb1ae554a84c1d110b4228b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planesLanded: 0
+  colorTable:
+  - {r: 1, g: 0.5058824, b: 0.5058824, a: 1}
   AngleThreshold: 0.3
   planeRotationSpeed: 10
   GameOverUIFadeInDuration: 1
   gameEnded: 0
   endingGame: 0
   endGameUI: {fileID: 0}
+  planeCountUI: {fileID: 0}
