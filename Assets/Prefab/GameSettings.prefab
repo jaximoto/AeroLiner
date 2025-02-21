@@ -46,3 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AngleThreshold: 0.3
   planeRotationSpeed: 10
+  GameOverUIFadeInDuration: 1
+  gameEnded: 0
+  endingGame: 0
+  endGameUI: {fileID: 0}

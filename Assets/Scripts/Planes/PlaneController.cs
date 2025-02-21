@@ -15,6 +15,7 @@ public class PlaneController : MonoBehaviour
     public bool lineWasAssigned = false;
     public float pathDelay = .75f;
     
+    GameSettings gameSettings;
     Rigidbody2D rb;
     SpriteRenderer sprite;
     int currentTargetIndex = 0;
@@ -22,6 +23,7 @@ public class PlaneController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameSettings = Component.FindFirstObjectByType<GameSettings>();
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         _transform = GetComponent<Transform>(); 
@@ -53,15 +55,24 @@ public class PlaneController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collided with " + collision.ToString());
+        Debug.Log("Collided with " + collision.gameObject.name);
         if (collision.gameObject.layer == 6 || collision.gameObject.layer == 7)
         {
             // Hit another plane
             // Destroy yourself and end game
-            Destroy(gameObject);
+            Crashed();
         }
 
         
+    }
+
+    private void Crashed()
+    {
+        // This is where explosion or some crash effect will happen
+        sprite.sprite = null;
+        // Call end of game function
+        gameSettings.gameEnded = true;
+        Destroy(gameObject);
     }
     // Okay so plane needs to know when line isn't done so it can wait to destroy a line, maybe like .5f secs
     // Maybe set a boolean that a couroutine launched by assign path sets to true
