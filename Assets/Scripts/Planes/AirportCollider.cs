@@ -79,6 +79,7 @@ public class AirportCollider : MonoBehaviour
             yield return StartCoroutine(plane.GetComponent<PlaneController>().StartLanding(landingScale, duration));
 
             yield return new WaitUntil(() => planeRotated);
+            //Debug.Log("PlaneRotated");
             Destroy(plane);
             gameSettings.IncrementPlaneCount();
 
@@ -94,11 +95,13 @@ public class AirportCollider : MonoBehaviour
         {
             return true;
         }
+        //Debug.Log("Wrong color, plane = " + plane.GetComponent<SpriteRenderer>().color + " airport = " + color);
         return false;
     }
 
     private IEnumerator RotatePlane(GameObject plane, float angleDifference)
     {
+        //Debug.Log("Called rotate plane coroutine");
         Rigidbody2D rb = plane.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
@@ -108,6 +111,7 @@ public class AirportCollider : MonoBehaviour
             {
                 //Debug.Log("Still in while loop");
                 rb.MoveRotation(Mathf.MoveTowardsAngle(rb.rotation, targetRotation, rotationSpeed * 20 * Time.deltaTime));
+                //Debug.Log("Rotating plane");
                 yield return null;
             }
 

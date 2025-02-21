@@ -1,13 +1,18 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using System.Collections.Generic;
 using TMPro;
 public class GameSettings : MonoBehaviour
 {
 
     public int planesLanded = 0;
-    // Airports
+    /*
+     * Color Table
+     * 0 = Red
+     */
+    public List<Color> colorTable;
+    // Airports and airplanes
     public float AngleThreshold;
     public float planeRotationSpeed;
 
