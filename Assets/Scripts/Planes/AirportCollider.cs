@@ -9,15 +9,14 @@ public class AirportCollider : MonoBehaviour
     float requiredAngleThreshold;
     float rotationSpeed;
     bool planeRotated = false;
-    /*
-     * Also need to add some kind of global score later
-     */
+    GameObject planeCountUI;
 
     private void Start()
     {
         GameSettings gameSettings = Component.FindFirstObjectByType<GameSettings>();
         requiredAngleThreshold = gameSettings.AngleThreshold;
         rotationSpeed = gameSettings.planeRotationSpeed;
+        //planeCountUI = GameObject.Find("PlaneCount");
         
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -80,13 +79,13 @@ public class AirportCollider : MonoBehaviour
 
             yield return new WaitUntil(() => planeRotated);
             Destroy(plane);
+            
 
         } 
         
     }
 
     
-
 
     private bool IsValidPlane(GameObject plane)
     {
