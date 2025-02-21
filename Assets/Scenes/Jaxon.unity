@@ -881,12 +881,16 @@ PrefabInstance:
       value: Plane
       objectReference: {fileID: 0}
     - target: {fileID: 4320243667151263483, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320243667151263483, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
       propertyPath: m_Color.b
-      value: 0.24056602
+      value: 0.504717
       objectReference: {fileID: 0}
     - target: {fileID: 4320243667151263483, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
       propertyPath: m_Color.g
-      value: 0.24056602
+      value: 0.504717
       objectReference: {fileID: 0}
     - target: {fileID: 4320243667151263483, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
       propertyPath: m_Color.r
@@ -931,6 +935,22 @@ PrefabInstance:
     - target: {fileID: 4774884573452144723, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816341100571786707, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
+      propertyPath: planeColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816341100571786707, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
+      propertyPath: planeColor.b
+      value: 0.5058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816341100571786707, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
+      propertyPath: planeColor.g
+      value: 0.5058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816341100571786707, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
+      propertyPath: planeColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9171999411121605410, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
       propertyPath: m_Parameters.textureMode
@@ -1022,6 +1042,26 @@ PrefabInstance:
       propertyPath: planeCountUI
       value: 
       objectReference: {fileID: 909254414}
+    - target: {fileID: 1255102211899526556, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
+      propertyPath: colorTable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255102211899526556, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
+      propertyPath: colorTable.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255102211899526556, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
+      propertyPath: colorTable.Array.data[0].b
+      value: 0.5058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255102211899526556, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
+      propertyPath: colorTable.Array.data[0].g
+      value: 0.5058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255102211899526556, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
+      propertyPath: colorTable.Array.data[0].r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8828962266361736386, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
       propertyPath: m_Name
       value: GameSettings
