@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using static SpawnArea;
 
 public class ObjectPool : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class ObjectPool : MonoBehaviour
 
 
     //spawn function. takes a spawnable type, and spawn coordinates, and activates an item from that pool in those coordinates
-    public GameObject SpawnFromPool(string tag, Vector2 position, Quaternion rotation)
+    public GameObject SpawnFromPool(string tag, Vector2 position, float rotation)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
@@ -42,7 +43,13 @@ public class ObjectPool : MonoBehaviour
             return null;
         }
 
+
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+
+        objectToSpawn.SetActive(true);
+        objectToSpawn.transform.position = position;
+        objectToSpawn.transform.rotation = Quaternion.Euler(0, 0, rotation);
+
         poolDictionary[tag].Enqueue(objectToSpawn);
         return objectToSpawn;
     }

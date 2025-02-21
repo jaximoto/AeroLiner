@@ -22,7 +22,7 @@ public class CameraZoom : MonoBehaviour
     void Awake()
     {
         cam = GetComponent<Camera>();
-        
+        settings = FindFirstObjectByType<GameSettings>();
 
     }
 
