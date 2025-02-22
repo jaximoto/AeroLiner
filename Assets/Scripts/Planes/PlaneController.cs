@@ -20,6 +20,7 @@ public class PlaneController : MonoBehaviour
     SpriteRenderer sprite;
     int currentTargetIndex = 0;
     Transform _transform;
+    public bool tutorial = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -76,7 +77,8 @@ public class PlaneController : MonoBehaviour
         // This is where explosion or some crash effect will happen
         sprite.sprite = null;
         // Call end of game function
-        gameSettings.gameEnded = true;
+        if (!tutorial)
+            gameSettings.gameEnded = true;
         gameObject.SetActive(false);
     }
     // Okay so plane needs to know when line isn't done so it can wait to destroy a line, maybe like .5f secs
