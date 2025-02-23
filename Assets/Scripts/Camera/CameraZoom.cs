@@ -71,7 +71,7 @@ public class CameraZoom : MonoBehaviour
             zoomLevel += 1;
             Debug.Log($"zoom level = {zoomLevel}");
             zooming = false;
-            zoomedOut.Invoke();
+            zoomedOut?.Invoke();
             yield return null;
         }    
    }

@@ -79,7 +79,7 @@ public class GameSettings : MonoBehaviour
 
     void LevelUp()
     {
-        ZoomTriggered.Invoke();
+        ZoomTriggered?.Invoke();
         
     }
 
