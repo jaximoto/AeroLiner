@@ -21,19 +21,29 @@ public class PlaneController : MonoBehaviour
     int currentTargetIndex = 0;
     Transform _transform;
     public bool tutorial = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public bool transitioning = false;
+
+
+    private void OnEnable()
+    {
+        _transform = GetComponent<Transform>();
+        gameSettings = FindFirstObjectByType<GameSettings>();
+        _transform.localScale = gameSettings.defaultPlaneScale * Vector3.one;
+    }
     void Start()
     {
-        gameSettings = FindFirstObjectByType<GameSettings>();
+        GameSettings.ZoomTriggered += Transition;
+        CameraZoom.zoomedOut += DoneTransition;
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-        _transform = GetComponent<Transform>();
+        
         ApplyColor(colorIndex);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (lineWasAssigned)
         {
             FollowPath();
@@ -176,5 +186,14 @@ public class PlaneController : MonoBehaviour
         yield return new WaitUntil(() => !LeanTween.isTweening(gameObject));
 
         yield return WaitForSeconds(duration / 2);
+    }
+
+    public void Transition()
+    {
+        GetComponent<Collider2D>().isTrigger = true;
+    }
+    public void DoneTransition()
+    {
+        GetComponent<Collider2D>().isTrigger = false;
     }
 }

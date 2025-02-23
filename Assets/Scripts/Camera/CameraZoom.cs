@@ -47,7 +47,7 @@ public class CameraZoom : MonoBehaviour
         
         size = cam.orthographicSize;
         float nextSize = size + (size * scale);
-        zooming = true;
+        
         Debug.Log($"scaleStarted. size is {size}, cam.orthoSize is {cam.orthographicSize}, nextSize is {nextSize}.");
         StartCoroutine(ZoomOut(nextSize));
     }
@@ -56,17 +56,18 @@ public class CameraZoom : MonoBehaviour
    {
         if (zoomLevel <= settings.zoomMax && !zooming)
         {
+            zooming = true;
             while (cam.orthographicSize < nextSize)
             {
                 cam.orthographicSize += zoomAmount;
                 yield return new WaitForSeconds(Time.deltaTime);
-                //Debug.Log("zoomin");
+                Debug.Log("zoomin");
             }
         }
 
         if (cam.orthographicSize >= nextSize) 
         {
-            //Debug.Log("zoom ceasin");
+            Debug.Log("zoom ceasin");
             cam.orthographicSize = nextSize;
             zoomLevel += 1;
             Debug.Log($"zoom level = {zoomLevel}");
