@@ -10,13 +10,14 @@ public class LineGenerator : MonoBehaviour
     public Line activeLine;
     public PlaneController activePlane;
     RaycastHit2D hit;
-
+    GameSettings gameSettings;
+    
     public int lineCount = 0;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gameSettings = FindAnyObjectByType<GameSettings>();
     }
 
     // Update is called once per frame
@@ -39,11 +40,16 @@ public class LineGenerator : MonoBehaviour
                 newLine.transform.parent = plane.transform;
                 activeLine = newLine.GetComponent<Line>();
 
+               
+                
                 // assign plane to line
                 activeLine.AssignedPlane = plane;
                 
                 // assign line to plane
                 activePlane = plane.GetComponent<PlaneController>();
+                // Get plane color and assign to line
+                Color planeColor = gameSettings.colorTable[activePlane.colorIndex];
+                activeLine.SetLineColor(planeColor);
                 StartCoroutine(activePlane.AssignPath(activeLine));
 
 

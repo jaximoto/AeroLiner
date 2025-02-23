@@ -87,4 +87,9 @@ public class Line : MonoBehaviour
         _lineRenderer.SetPositions(positions);
     }
 
+    public void SetLineColor(Color color)
+    {
+        _lineRenderer.startColor = color;
+        _lineRenderer.endColor = color;
+    }
 }

@@ -843,6 +843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LineGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 7721124547378235760, guid: cb50329006443114a9d792724c1e3ec3, type: 3}
+      propertyPath: maxLineLength
+      value: 20000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
