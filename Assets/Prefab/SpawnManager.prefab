@@ -65,15 +65,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  padd: 1
+  padd: 2
   spawnRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  testPlane: {fileID: 0}
-  lookAt: {fileID: 0}
   waitBetweenSpawns: 1
   spawnMax: 1
 --- !u!114 &8354357676471431375
@@ -92,8 +90,6 @@ MonoBehaviour:
   spawns_0:
   - tag: Plane
     size: 10
-  - tag: Satellite
-    size: 5
   spawns_1:
   - tag: Plane
     size: 10
@@ -112,7 +108,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b64695ae61c2c4fb0aa5cdc607b42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool: {fileID: 5910084793422849507}
-  spawnArea: {fileID: 6083234180647044430}
-  spawnTable: {fileID: 8354357676471431375}
   spawnMax: 10

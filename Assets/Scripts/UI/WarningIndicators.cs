@@ -18,7 +18,7 @@ public class WarningIndicators : MonoBehaviour
 
     void Awake()
     {
-
+        CameraZoom.zoomedOut += ResizeColliders;
         signs = new Queue<GameObject>();
         for (int i = 0; i < signCount; i++)
         {

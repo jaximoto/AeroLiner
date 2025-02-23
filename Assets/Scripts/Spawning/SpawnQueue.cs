@@ -5,35 +5,31 @@ using static SpawnArea;
 
 public class SpawnQueue : MonoBehaviour
 {
+    
+    ObjectPool pool;
+    SpawnArea spawnArea;
+    SpawnTable spawnTable;
 
-    public ObjectPool pool;
-    public SpawnArea spawnArea;
-    public SpawnTable spawnTable;
 
+    //setupSpawn variation based off levels
     float minSpawnTimer;
     float maxSpawnTimer;
-    
 
+    bool spawning;
     float spawnCount;
     public float spawnMax;
     void Awake()
     {
-
+        pool = GetComponent<ObjectPool>();
+        spawnArea = GetComponent<SpawnArea>();
+        spawnTable = GetComponent<SpawnTable>();
+        CameraZoom.zoomedOut += StartSpawning;
+        GameSettings.ZoomTriggered += StopSpawning; 
     }
     void Start()
     {
-        StartCoroutine(WaitAndSpawn());
+        StartSpawning();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonDown("Fire2"))
-        {
-            SpawnRandom();
-        }
-    }
-
 
     void SpawnRandom()
     {
@@ -55,6 +51,19 @@ public class SpawnQueue : MonoBehaviour
         if (spawnCount > spawnMax) yield return null;
     }
 
+
+    void StartSpawning()
+    {
+        spawning = true;
+        StartCoroutine(WaitAndSpawn());
+    }
+
+    void StopSpawning()
+    {
+        StopCoroutine(WaitAndSpawn());
+        spawning = false;
+        
+    }
 }
     /*
      * we want this script to:
