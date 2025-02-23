@@ -763,7 +763,7 @@ MonoBehaviour:
   track2: {fileID: 8300000, guid: a1d77e29c6649af4b91a2a843a837420, type: 3}
   volume: 0
   startVolume: 1
-  playVolume: 0
+  playVolume: 0.7
   deltaVolume: 0.025
   subscribed: 0
 --- !u!82 &939616856

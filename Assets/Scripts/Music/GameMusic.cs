@@ -68,11 +68,11 @@ public class GameMusic : MonoBehaviour
 
     }
 
-    private IEnumerator PlayIn(float playVolume)
+    private IEnumerator PlayIn(float volume)
     {
         source.Play();
         Debug.Log($"GameMusic PlayIn(volume {volume}) called");
-        while (volume < startVolume)
+        while (volume < playVolume)
         {
             Debug.Log($"GameMusic volume = {volume}");
             volume += deltaVolume;
@@ -81,7 +81,7 @@ public class GameMusic : MonoBehaviour
         }
         if (volume >= startVolume)
         {
-            volume = startVolume;
+            volume = playVolume;
             source.volume = volume;
             yield return null;
         }
