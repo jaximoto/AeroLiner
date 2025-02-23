@@ -16,7 +16,7 @@ public class GameSettings : MonoBehaviour
     // Airports and airplanes
     public float AngleThreshold;
     public float planeRotationSpeed;
-
+    public float defaultPlaneScale;
     //cameraZoom
     public float zoomMax;
 
