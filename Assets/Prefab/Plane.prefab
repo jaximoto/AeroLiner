@@ -358,7 +358,9 @@ MonoBehaviour:
   currentPath: []
   lineWasAssigned: 0
   pathDelay: 0.25
+  crashPrefab: {fileID: 5817335877034445834, guid: 8abef5d421291474ca59db5cd9f2542c, type: 3}
   tutorial: 0
+  transitioning: 0
 --- !u!50 &4591222958468480462
 Rigidbody2D:
   serializedVersion: 5
