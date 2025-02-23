@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: c8c53bc786e9c8e488557cef2ea05c63
+guid: d4097ec478b7f0546aeb6e4ce7b3a3a7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3182443913464265627
-    second: AirportNew_0
+      213: 4318317399296893276
+    second: New Airport_0
   - first:
-      213: -9144576350222543641
-    second: AirportNew_1
+      213: -8882772598861147803
+    second: New Airport_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,14 +49,14 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -125,24 +125,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AirportNew_0
+      name: New Airport_0
       rect:
         serializedVersion: 2
         x: 457
@@ -157,14 +144,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 564cb5c3f10b5d3d0800000000000000
-      internalID: -3182443913464265627
+      spriteID: c51ea749bcebdeb30800000000000000
+      internalID: 4318317399296893276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AirportNew_1
+      name: New Airport_1
       rect:
         serializedVersion: 2
         x: 367
@@ -179,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e41c8f6240f71180800000000000000
-      internalID: -9144576350222543641
+      spriteID: 561de40626d0ab480800000000000000
+      internalID: -8882772598861147803
       vertices: []
       indices: 
       edges: []
@@ -189,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -198,9 +185,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      AirportNew_0: -3182443913464265627
-      AirportNew_1: -9144576350222543641
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
