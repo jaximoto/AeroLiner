@@ -69,7 +69,7 @@ public class SpawnQueue : MonoBehaviour
             StopCoroutine(WaitAndSpawn());
             spawning = false;
         }
-\ 
+
     }
 }
     /*
