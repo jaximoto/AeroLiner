@@ -6,9 +6,9 @@ using static SpawnArea;
 public class SpawnQueue : MonoBehaviour
 {
     
-    public ObjectPool pool;
-    public SpawnArea spawnArea;
-    public SpawnTable spawnTable;
+    ObjectPool pool;
+    SpawnArea spawnArea;
+    SpawnTable spawnTable;
 
 
     //setupSpawn variation based off levels
@@ -20,23 +20,16 @@ public class SpawnQueue : MonoBehaviour
     public float spawnMax;
     void Awake()
     {
+        pool = GetComponent<ObjectPool>();
+        spawnArea = GetComponent<SpawnArea>();
+        spawnTable = GetComponent<SpawnTable>();
         CameraZoom.zoomedOut += StartSpawning;
-        GameSettings.ZoomTriggered += StopSpawning;
+        GameSettings.ZoomTriggered += StopSpawning; 
     }
     void Start()
     {
-        
+        StartSpawning();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonDown("Fire2"))
-        {
-            SpawnRandom();
-        }
-    }
-
 
     void SpawnRandom()
     {

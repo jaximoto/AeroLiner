@@ -106,7 +106,8 @@ public class SpawnTable : MonoBehaviour
 
     public string RandomSpawnTag()
     {
-        Debug.Log($"zoom level is{zoom.zoomLevel}, spawnTag is {spawnTableList[zoom.zoomLevel][Random.Range(0, spawnTableList[zoom.zoomLevel].Count)]}");
+        //spawnTag is {spawnTableList[zoom.zoomLevel][Random.Range(0, spawnTableList[zoom.zoomLevel].Count)]}
+        //Debug.Log($"zoom level is{zoom.zoomLevel}, spawnTable is {spawnTableList[zoom.zoomLevel] } ");
         string randTag = spawnTableList[zoom.zoomLevel][Random.Range(0, spawnTableList[zoom.zoomLevel].Count)];
         return randTag;
     }
