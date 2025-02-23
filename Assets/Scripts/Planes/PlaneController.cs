@@ -201,6 +201,11 @@ public class PlaneController : MonoBehaviour
     }
     public void DoneTransition()
     {
+        if (gameObject.activeSelf)
+        {
+            gameObject.SetActive(false);
+        }
+        
         GetComponent<Collider2D>().isTrigger = false;
     }
 }
