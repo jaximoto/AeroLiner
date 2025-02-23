@@ -14,11 +14,7 @@ public class CloudAnimation : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("Fire1")) 
-        {
-            Debug.Log("clouds fired");
-            LowerClouds();
-        }
+
     }
     void LowerClouds()
     {
