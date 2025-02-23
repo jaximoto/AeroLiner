@@ -29,7 +29,7 @@ public class CameraZoom : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !zooming) 
+        if (Input.GetButtonDown("Fire2") && !zooming) 
         {
             Debug.Log("KeyDown");
             scaleCamera();

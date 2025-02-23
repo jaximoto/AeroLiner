@@ -19,6 +19,8 @@ public class GameSettings : MonoBehaviour
     //cameraZoom
     public float zoomMax;
 
+
+
     // End Game Settings
     public float GameOverUIFadeInDuration;
 

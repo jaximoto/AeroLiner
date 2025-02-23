@@ -11,6 +11,12 @@ public class SpawnArea : MonoBehaviour
     public Rect spawnRect;
     Rect camRect;
 
+    public Rect GetCamRect()
+    {
+        return camRect;
+    }
+
+
 
     //Test Objects
     //public GameObject testPlane;

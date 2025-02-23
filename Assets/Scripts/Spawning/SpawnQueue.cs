@@ -10,6 +10,9 @@ public class SpawnQueue : MonoBehaviour
     public SpawnArea spawnArea;
     public SpawnTable spawnTable;
 
+    float minSpawnTimer;
+    float maxSpawnTimer;
+    
 
     float spawnCount;
     public float spawnMax;
