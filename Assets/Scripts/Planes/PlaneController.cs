@@ -14,7 +14,7 @@ public class PlaneController : MonoBehaviour
     public List<Vector2> currentPath;
     public bool lineWasAssigned = false;
     public float pathDelay = .75f;
-    
+    public GameObject crashPrefab;
     GameSettings gameSettings;
     Rigidbody2D rb;
     SpriteRenderer sprite;
@@ -29,13 +29,17 @@ public class PlaneController : MonoBehaviour
         _transform = GetComponent<Transform>();
         gameSettings = FindFirstObjectByType<GameSettings>();
         _transform.localScale = gameSettings.defaultPlaneScale * Vector3.one;
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.enabled = true;
+        GetComponent<Collider2D>().isTrigger = false;
     }
     void Start()
     {
+        
+        
         GameSettings.ZoomTriggered += Transition;
         CameraZoom.zoomedOut += DoneTransition;
         rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
         
         ApplyColor(colorIndex);
     }
@@ -85,7 +89,10 @@ public class PlaneController : MonoBehaviour
     private void Crashed()
     {
         // This is where explosion or some crash effect will happen
-        sprite.sprite = null;
+        GetComponent<Collider2D>().isTrigger = true;
+        
+        sprite.enabled = false;
+        Instantiate(crashPrefab, _transform.position, Quaternion.identity);
         // Call end of game function
         if (!tutorial)
             gameSettings.gameEnded = true;
