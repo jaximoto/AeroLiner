@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using TMPro;
+using System;
 public class GameSettings : MonoBehaviour
 {
 
@@ -29,10 +30,18 @@ public class GameSettings : MonoBehaviour
     public CanvasGroup endGameUI;
     public TMP_Text planeCountUI;
 
+    //planes to clear eachLevel
+    public int[] levelClears;
+    public CameraZoom zoom;
+    public static event Action ZoomTriggered;
+
     private void Update()
     {
         if (gameEnded) 
             EndGame();
+
+        if (planesLanded >= levelClears[zoom.zoomLevel])
+            LevelUp();
     }
 
     public void IncrementPlaneCount()
@@ -67,4 +76,12 @@ public class GameSettings : MonoBehaviour
     {
         SceneManager.LoadScene(sceneId);
     }
+
+    void LevelUp()
+    {
+        ZoomTriggered.Invoke();
+        
+    }
+
+
 }

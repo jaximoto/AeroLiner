@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class CameraZoom : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class CameraZoom : MonoBehaviour
 
     public int zoomLevel;
 
+    public static event Action zoomedOut;
+
     /* TODO
      * Make the zoom have a tween effect of some sort
      * add zoomLevel
@@ -23,10 +26,10 @@ public class CameraZoom : MonoBehaviour
     {
         cam = GetComponent<Camera>();
         settings = FindFirstObjectByType<GameSettings>();
-
+        GameSettings.ZoomTriggered += scaleCamera;
     }
 
-
+    /*
     void Update()
     {
         if (Input.GetButtonDown("Fire2") && !zooming) 
@@ -35,11 +38,11 @@ public class CameraZoom : MonoBehaviour
             scaleCamera();
         }
     }
-
+    */
 
 
     //scale up
-    void scaleCamera()
+    public void scaleCamera()
     {
         
         size = cam.orthographicSize;
@@ -51,16 +54,14 @@ public class CameraZoom : MonoBehaviour
 
    private IEnumerator ZoomOut(float nextSize)
    {
-        if (zoomLevel >= settings.zoomMax)
+        if (zoomLevel <= settings.zoomMax && !zooming)
         {
-            Debug.Log("zoom is at max");
-            yield return null;
-        }
-        while (cam.orthographicSize < nextSize) 
-        {
-            cam.orthographicSize += zoomAmount;
-            yield return new WaitForSeconds(Time.deltaTime);
-            //Debug.Log("zoomin");
+            while (cam.orthographicSize < nextSize)
+            {
+                cam.orthographicSize += zoomAmount;
+                yield return new WaitForSeconds(Time.deltaTime);
+                //Debug.Log("zoomin");
+            }
         }
 
         if (cam.orthographicSize >= nextSize) 
@@ -70,6 +71,7 @@ public class CameraZoom : MonoBehaviour
             zoomLevel += 1;
             Debug.Log($"zoom level = {zoomLevel}");
             zooming = false;
+            zoomedOut.Invoke();
             yield return null;
         }    
    }

@@ -5,24 +5,27 @@ using static SpawnArea;
 
 public class SpawnQueue : MonoBehaviour
 {
-
+    
     public ObjectPool pool;
     public SpawnArea spawnArea;
     public SpawnTable spawnTable;
 
+
+    //setupSpawn variation based off levels
     float minSpawnTimer;
     float maxSpawnTimer;
-    
 
+    bool spawning;
     float spawnCount;
     public float spawnMax;
     void Awake()
     {
-
+        CameraZoom.zoomedOut += StartSpawning;
+        GameSettings.ZoomTriggered += StopSpawning;
     }
     void Start()
     {
-        StartCoroutine(WaitAndSpawn());
+        
     }
 
     // Update is called once per frame
@@ -55,6 +58,19 @@ public class SpawnQueue : MonoBehaviour
         if (spawnCount > spawnMax) yield return null;
     }
 
+
+    void StartSpawning()
+    {
+        spawning = true;
+        StartCoroutine(WaitAndSpawn());
+    }
+
+    void StopSpawning()
+    {
+        StopCoroutine(WaitAndSpawn());
+        spawning = false;
+        
+    }
 }
     /*
      * we want this script to:

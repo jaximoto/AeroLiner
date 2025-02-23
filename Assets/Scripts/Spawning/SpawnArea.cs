@@ -41,6 +41,7 @@ public class SpawnArea : MonoBehaviour
     {
         cam = Camera.main;
         GetSpawnBounds();
+        CameraZoom.zoomedOut += GetSpawnBounds;
         //StartCoroutine(WaitAndSpawn());
     }
 

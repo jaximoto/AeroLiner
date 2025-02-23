@@ -5320,6 +5320,26 @@ PrefabInstance:
       propertyPath: zoomMax
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1255102211899526556, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
+      propertyPath: levelClears.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255102211899526556, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
+      propertyPath: 'levelClears.Array.data[0]'
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255102211899526556, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
+      propertyPath: 'levelClears.Array.data[1]'
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255102211899526556, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
+      propertyPath: 'levelClears.Array.data[2]'
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255102211899526556, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
+      propertyPath: 'levelClears.Array.data[3]'
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 8828962266361736386, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
       propertyPath: m_Name
       value: GameSettings
