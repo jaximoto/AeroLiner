@@ -48,7 +48,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8
-  maxLineLength: 200
+  maxLineLength: 20000
   activeLine: {fileID: 0}
   activePlane: {fileID: 0}
   lineCount: 0

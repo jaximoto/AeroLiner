@@ -70,8 +70,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AnimationSpeed: -1
     - _EnableExternalAlpha: 0
-    - _TilingStrength: 123
+    - _ShouldAnimate: 1
+    - _TilingStrength: 1.6
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
