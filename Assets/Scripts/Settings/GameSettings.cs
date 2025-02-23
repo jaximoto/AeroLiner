@@ -40,7 +40,7 @@ public class GameSettings : MonoBehaviour
         if (gameEnded) 
             EndGame();
 
-        if (planesLanded >= levelClears[zoom.zoomLevel])
+        if (planesLanded >= levelClears[zoom.zoomLevel] && !zoom.zooming)
             LevelUp();
     }
 

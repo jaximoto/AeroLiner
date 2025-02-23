@@ -10,7 +10,7 @@ public class CameraZoom : MonoBehaviour
     [SerializeField] private float size;
     public float scale;
     public float zoomAmount;
-    [SerializeField] private bool zooming;
+    public bool zooming;
 
     public int zoomLevel;
 
