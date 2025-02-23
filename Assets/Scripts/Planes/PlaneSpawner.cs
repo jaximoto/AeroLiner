@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class PlaneSpawner : MonoBehaviour
 {
-    GameObject Plane;
-   void SpawnPlane(Transform spot)
+    public GameObject Plane;
+    public Transform spawnArea;
+    public AutoDraw lineCreator;
+   public void SpawnPlane()
     {
-        Instantiate(Plane, spot.position, Quaternion.identity);
+        GameObject newPlane = Instantiate(Plane, spawnArea.position, Quaternion.identity);
+
+        // give the autodraw script a ref to the new plane
+        lineCreator.plane = newPlane;
+        // call create line
+        lineCreator.MakeLine();
     }
 }

@@ -11,7 +11,9 @@ public class AirportCollider : MonoBehaviour
     bool planeRotated = false;
     GameObject planeCountUI;
     GameSettings gameSettings;
-
+    public PlaneSpawner planeSpawner;
+    // Have this be a field in game settings:
+    public bool tutorial = false;
     private void Start()
     {
         gameSettings = Component.FindFirstObjectByType<GameSettings>();
@@ -80,7 +82,12 @@ public class AirportCollider : MonoBehaviour
 
             yield return new WaitUntil(() => planeRotated);
             //Debug.Log("PlaneRotated");
+            
             plane.SetActive(false);
+            if (tutorial)
+                planeSpawner.SpawnPlane();
+                
+            else
             gameSettings.IncrementPlaneCount();
 
         } 

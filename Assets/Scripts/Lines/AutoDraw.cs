@@ -16,6 +16,11 @@ public class AutoDraw : MonoBehaviour
     void Start()
     {
         
+        MakeLine();
+    }
+
+    public void MakeLine()
+    {
         points = new Vector3[segments];
 
         // Precompute all Bezier points
@@ -36,7 +41,6 @@ public class AutoDraw : MonoBehaviour
         StartCoroutine(activePlane.AssignPath(activeLine));
         StartCoroutine(DrawCurve());
     }
-
     IEnumerator DrawCurve()
     {
         float interval = drawDuration / segments;
