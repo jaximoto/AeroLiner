@@ -75,7 +75,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _MovementSpeed: 1
+    - _MovementSpeed: -0.108
+    - _VerticalBob: 0.05
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
