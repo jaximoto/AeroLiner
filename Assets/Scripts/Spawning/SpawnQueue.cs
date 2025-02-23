@@ -9,6 +9,7 @@ public class SpawnQueue : MonoBehaviour
     ObjectPool pool;
     SpawnArea spawnArea;
     SpawnTable spawnTable;
+    public CameraZoom zoom;
 
 
     //setupSpawn variation based off levels
@@ -41,14 +42,13 @@ public class SpawnQueue : MonoBehaviour
 
     private IEnumerator WaitAndSpawn()
     {
-        while (spawnCount <= spawnMax)
+        while (spawning)
         {
             SpawnRandom();
-            spawnCount++;
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(Random.Range(2,5 - zoom.zoomLevel / 2));
         }
 
-        if (spawnCount > spawnMax) yield return null;
+        if (!spawning) yield return null;
     }
 
 

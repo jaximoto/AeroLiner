@@ -22,10 +22,14 @@ public class PlaneController : MonoBehaviour
     Transform _transform;
     public bool tutorial = false;
     public bool transitioning = false;
-
-
+    Camera cam;
+    CameraZoom zoom;
     private void OnEnable()
     {
+        cam = Camera.main;
+        zoom = cam.GetComponent<CameraZoom>();
+        colorIndex = Mathf.RoundToInt(Random.Range(0, zoom.zoomLevel));
+
         _transform = GetComponent<Transform>();
         gameSettings = FindFirstObjectByType<GameSettings>();
         _transform.localScale = gameSettings.defaultPlaneScale * Vector3.one;
