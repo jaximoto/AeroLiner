@@ -54,15 +54,22 @@ public class SpawnQueue : MonoBehaviour
 
     void StartSpawning()
     {
-        spawning = true;
-        StartCoroutine(WaitAndSpawn());
+        if (!spawning)
+        {
+            spawning = true;
+            StartCoroutine(WaitAndSpawn());
+        }
+
     }
 
     void StopSpawning()
     {
-        StopCoroutine(WaitAndSpawn());
-        spawning = false;
-        
+        if (spawning)
+        {
+            StopCoroutine(WaitAndSpawn());
+            spawning = false;
+        }
+
     }
 }
     /*
