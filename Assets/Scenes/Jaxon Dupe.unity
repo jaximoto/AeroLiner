@@ -240,6 +240,46 @@ PrefabInstance:
       propertyPath: zoom
       value: 
       objectReference: {fileID: 936018345}
+    - target: {fileID: 8354357676471431375, guid: 8efdca6adf41e594a8e8e87128432c5d, type: 3}
+      propertyPath: spawns_2.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354357676471431375, guid: 8efdca6adf41e594a8e8e87128432c5d, type: 3}
+      propertyPath: spawns_3.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354357676471431375, guid: 8efdca6adf41e594a8e8e87128432c5d, type: 3}
+      propertyPath: spawns_4.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354357676471431375, guid: 8efdca6adf41e594a8e8e87128432c5d, type: 3}
+      propertyPath: spawns_2.Array.data[0].tag
+      value: Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354357676471431375, guid: 8efdca6adf41e594a8e8e87128432c5d, type: 3}
+      propertyPath: spawns_3.Array.data[0].tag
+      value: Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354357676471431375, guid: 8efdca6adf41e594a8e8e87128432c5d, type: 3}
+      propertyPath: spawns_4.Array.data[0].tag
+      value: Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354357676471431375, guid: 8efdca6adf41e594a8e8e87128432c5d, type: 3}
+      propertyPath: spawns_2.Array.data[0].size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354357676471431375, guid: 8efdca6adf41e594a8e8e87128432c5d, type: 3}
+      propertyPath: spawns_3.Array.data[0].size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354357676471431375, guid: 8efdca6adf41e594a8e8e87128432c5d, type: 3}
+      propertyPath: spawns_4.Array.data[0].size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555912310357686043, guid: 8efdca6adf41e594a8e8e87128432c5d, type: 3}
+      propertyPath: zoom
+      value: 
+      objectReference: {fileID: 936018345}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
