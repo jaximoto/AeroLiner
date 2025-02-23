@@ -875,13 +875,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
+    - target: {fileID: 4320243667151263483, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320243667151263483, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320243667151263483, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6640173
+      objectReference: {fileID: 0}
     - target: {fileID: 4774884573452144723, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.546
+      value: 2.99
       objectReference: {fileID: 0}
     - target: {fileID: 4774884573452144723, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.542
+      value: -0.33
       objectReference: {fileID: 0}
     - target: {fileID: 4774884573452144723, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
       propertyPath: m_LocalPosition.z
@@ -997,10 +1009,6 @@ PrefabInstance:
       propertyPath: planeCountUI
       value: 
       objectReference: {fileID: 909254414}
-    - target: {fileID: 1255102211899526556, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
-      propertyPath: defaultPlaneScale
-      value: 0.11
-      objectReference: {fileID: 0}
     - target: {fileID: 8828962266361736386, guid: f3fe71b3d3eab4d4fab52fbe32f152f2, type: 3}
       propertyPath: m_Name
       value: GameSettings
