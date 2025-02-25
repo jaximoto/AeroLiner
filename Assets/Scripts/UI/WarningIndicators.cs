@@ -35,7 +35,7 @@ public class WarningIndicators : MonoBehaviour
         bc = GetComponent<BoxCollider2D>();
         ResizeColliders();
 
-        Debug.Log($"signs count = {signs.Count}");
+        //Debug.Log($"signs count = {signs.Count}");
     }
 
     public GameObject SpawnSign(Rigidbody2D rb)
@@ -60,8 +60,8 @@ public class WarningIndicators : MonoBehaviour
             y = rb.position.y;
 
             indPos = new Vector2(x, y);
-            Debug.Log($"indPos = {indPos} and vX is non0");
-            Debug.Log($"rb.pos.y is {rb.position.y}, indRect.yMin is {indRect.yMin}, indRect.yMax is {indRect.yMax}, returned y is {y}");
+            //Debug.Log($"indPos = {indPos} and vX is non0");
+            //Debug.Log($"rb.pos.y is {rb.position.y}, indRect.yMin is {indRect.yMin}, indRect.yMax is {indRect.yMax}, returned y is {y}");
             return indPos;
         }
         else if (Mathf.Abs(rb.linearVelocityX) < Mathf.Abs(rb.linearVelocityY))
@@ -70,8 +70,8 @@ public class WarningIndicators : MonoBehaviour
             y = Mathf.Clamp(rb.position.y, indRect.yMin, indRect.yMax);
 
             indPos = new Vector2(x, y);
-            Debug.Log($"indPos = {indPos} and vY is non0");
-            Debug.Log($"rb.pos.x is {rb.position.x}, indRect.xMin is {indRect.xMin}, indRect.xMax is {indRect.xMax}, returned x is {x}");
+            //Debug.Log($"indPos = {indPos} and vY is non0");
+            //Debug.Log($"rb.pos.x is {rb.position.x}, indRect.xMin is {indRect.xMin}, indRect.xMax is {indRect.xMax}, returned x is {x}");
             return indPos;
         }
 
@@ -84,7 +84,7 @@ public class WarningIndicators : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log($"collision at {col.transform.position}");
+        //Debug.Log($"collision at {col.transform.position}");
         SpawnSign(col.attachedRigidbody);
     }
 

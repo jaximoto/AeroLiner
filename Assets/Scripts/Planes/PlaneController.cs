@@ -196,7 +196,7 @@ public class PlaneController : MonoBehaviour
         // Wait until the tween is finished
         yield return new WaitUntil(() => !LeanTween.isTweening(gameObject));
 
-        yield return WaitForSeconds(duration / 2);
+        //yield return WaitForSeconds(duration / 2);
     }
 
     public void Transition()

@@ -81,7 +81,7 @@ public class AirportCollider : MonoBehaviour
             yield return StartCoroutine(plane.GetComponent<PlaneController>().StartLanding(landingScale, duration));
 
             yield return new WaitUntil(() => planeRotated);
-            //Debug.Log("PlaneRotated");
+            Debug.Log("PlaneRotated");
             
             plane.SetActive(false);
             if (tutorial)
@@ -117,7 +117,7 @@ public class AirportCollider : MonoBehaviour
             while (Mathf.Abs(Mathf.DeltaAngle(rb.rotation, targetRotation)) > 0.3f) // Looser threshold
             {
                 //Debug.Log("Still in while loop");
-                rb.MoveRotation(Mathf.MoveTowardsAngle(rb.rotation, targetRotation, rotationSpeed * 20 * Time.deltaTime));
+                rb.MoveRotation(Mathf.MoveTowardsAngle(rb.rotation, targetRotation, rotationSpeed * 50 * Time.deltaTime));
                 //Debug.Log("Rotating plane");
                 yield return null;
             }

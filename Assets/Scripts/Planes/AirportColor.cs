@@ -7,13 +7,15 @@ public class AirportColor : MonoBehaviour
     Collider2D[] childHitBoxes;
     SpriteRenderer spriteRenderer;
     GameSettings gameSettings;
+    public bool tutorial = false;
     private void Awake()
     {
         gameSettings = FindFirstObjectByType<GameSettings>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         childHitBoxes = GetComponentsInChildren<Collider2D>();
         ChangeColor(colorIndex);
-        gameObject.SetActive(false);
+        if (!tutorial)
+            gameObject.SetActive(false);
     }
 
     public void ChangeColor(int colorIndex)
