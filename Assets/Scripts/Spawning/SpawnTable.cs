@@ -48,10 +48,10 @@ public class SpawnTable : MonoBehaviour
          
             for (int j = 0; j < spawns_0[i].size; j++)
             {
-                Debug.Log($"spawns_0[j].size {spawns_0[i].size}, spawnTag is {spawns_0[i].tag} ");
+                //Debug.Log($"spawns_0[j].size {spawns_0[i].size}, spawnTag is {spawns_0[i].tag} ");
                 spawnTable_0.Add(spawns_0[i].tag);
             }
-            Debug.Log($"count is {spawnTable_0.Count}");
+            //Debug.Log($"count is {spawnTable_0.Count}");
 
         }
 

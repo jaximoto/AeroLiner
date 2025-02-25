@@ -43,7 +43,10 @@ public class GameSettings : MonoBehaviour
         if (planesLanded >= levelClears[zoom.zoomLevel] && !zoom.zooming)
             LevelUp();
     }
-
+    private void OnDestroy()
+    {
+        ZoomTriggered = null;
+    }
     public void IncrementPlaneCount()
     {
         planesLanded++;

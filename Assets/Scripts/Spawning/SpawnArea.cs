@@ -81,7 +81,7 @@ public class SpawnArea : MonoBehaviour
     public SpawnDirs RandomSpawn() 
     {
         Vector2 randPos = new Vector2(Random.Range(camRect.xMin, camRect.xMax), Random.Range(camRect.yMin, camRect.yMax));
-        Debug.Log($"randompos is {randPos}");
+        //Debug.Log($"randompos is {randPos}");
 
 
         float xDiff;
