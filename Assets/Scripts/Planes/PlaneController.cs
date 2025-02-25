@@ -28,7 +28,9 @@ public class PlaneController : MonoBehaviour
     {
         cam = Camera.main;
         zoom = cam.GetComponent<CameraZoom>();
-        colorIndex = Mathf.RoundToInt(Random.Range(0, zoom.zoomLevel));
+        int number = Mathf.RoundToInt(Random.Range(0, zoom.zoomLevel + 1));
+        Debug.Log($"number is {number}");
+        colorIndex = number;
 
         _transform = GetComponent<Transform>();
         gameSettings = FindFirstObjectByType<GameSettings>();

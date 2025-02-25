@@ -45,7 +45,7 @@ public class SpawnQueue : MonoBehaviour
         while (spawning)
         {
             SpawnRandom();
-            yield return new WaitForSeconds(Random.Range(2,5 - zoom.zoomLevel / 2));
+            yield return new WaitForSecondsRealtime(Random.Range(2,5 - (zoom.zoomLevel / 2)));
         }
 
         if (!spawning) yield return null;

@@ -5,7 +5,7 @@ public class AirportCollider : MonoBehaviour
 {
     public Color color;
     public Vector3 landingScale = new Vector3(.04f, .04f, 1f);
-    public float duration = 1f;
+    public float duration = 2f;
     float requiredAngleThreshold;
     float rotationSpeed;
     bool planeRotated = false;

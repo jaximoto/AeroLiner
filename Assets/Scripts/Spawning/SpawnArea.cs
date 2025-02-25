@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 public class SpawnArea : MonoBehaviour
 {
-    
+    public WarningIndicators ind;
 
 
     public Camera cam;
@@ -13,6 +13,7 @@ public class SpawnArea : MonoBehaviour
 
     public Rect GetCamRect()
     {
+
         return camRect;
     }
 
@@ -65,6 +66,7 @@ public class SpawnArea : MonoBehaviour
 
         // Define a larger rectangle around the camera's view
         spawnRect = new Rect(camRect.xMin - padd, camRect.yMin - padd, camRect.width + 2 * padd, camRect.height + 2 * padd);
+        ind.ResizeColliders(spawnRect);
     }
 
     void OnDrawGizmos()

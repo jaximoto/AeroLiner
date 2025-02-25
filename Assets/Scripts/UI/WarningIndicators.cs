@@ -5,7 +5,7 @@ using static ObjectPool;
 
 public class WarningIndicators : MonoBehaviour
 {
-    Rect warningRect, camRect, indRect;
+    Rect camRect, indRect;
     
     BoxCollider2D bc;
     public SpawnArea area;
@@ -18,7 +18,8 @@ public class WarningIndicators : MonoBehaviour
 
     void Awake()
     {
-        CameraZoom.zoomedOut += ResizeColliders;
+        bc = GetComponent<BoxCollider2D>();
+        //CameraZoom.zoomedOut += ResizeColliders;
         signs = new Queue<GameObject>();
         for (int i = 0; i < signCount; i++)
         {
@@ -30,10 +31,10 @@ public class WarningIndicators : MonoBehaviour
 
     void Start()
     {
-        warningRect = area.spawnRect;
+        //warningRect = area.spawnRect;
 
-        bc = GetComponent<BoxCollider2D>();
-        ResizeColliders();
+        
+        //ResizeColliders();
 
         //Debug.Log($"signs count = {signs.Count}");
     }
@@ -90,11 +91,11 @@ public class WarningIndicators : MonoBehaviour
 
 
 
-    void ResizeColliders()
+    public void ResizeColliders(Rect rect)
     {
-        
-        bc.size = warningRect.size;
-        bc.transform.position = warningRect.center;
+        Debug.Log("Resize colliders called");
+        bc.size = rect.size;
+        bc.transform.position = rect.center;
 
         camRect = area.GetCamRect();
         indRect = new Rect(camRect.xMin + padd, camRect.yMin + padd, camRect.width - 2 * padd, camRect.height - 2 * padd);
