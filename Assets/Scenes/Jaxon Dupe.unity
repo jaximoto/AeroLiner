@@ -702,7 +702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 0
   scale: 0.25
-  zoomAmount: 0.005
+  zoomAmount: 0.01
   zooming: 0
   Tutorial: 0
   zoomLevel: 0
@@ -1347,6 +1347,14 @@ PrefabInstance:
       propertyPath: colorIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4834128877713255390, guid: ec4706f32ebe63546be0e14d81706d39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834128877713255390, guid: ec4706f32ebe63546be0e14d81706d39, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5772206074468334099, guid: ec4706f32ebe63546be0e14d81706d39, type: 3}
       propertyPath: colorIndex
       value: 2
@@ -1357,11 +1365,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7984623876598860876, guid: ec4706f32ebe63546be0e14d81706d39, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.3
+      value: 13.97
       objectReference: {fileID: 0}
     - target: {fileID: 7984623876598860876, guid: ec4706f32ebe63546be0e14d81706d39, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.18
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810123000057319828, guid: ec4706f32ebe63546be0e14d81706d39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810123000057319828, guid: ec4706f32ebe63546be0e14d81706d39, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220068570738572106, guid: ec4706f32ebe63546be0e14d81706d39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220068570738572106, guid: ec4706f32ebe63546be0e14d81706d39, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

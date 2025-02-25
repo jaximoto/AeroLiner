@@ -15,12 +15,25 @@ public class GameMusic : MonoBehaviour
     public bool subscribed = false;
     Button button;
 
+    private static GameMusic instance;
+
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy any new instances
+        }
         source = GetComponent<AudioSource>();
         source.clip = track1;
-        source.Play();
+        if (!source.isPlaying)
+        {
+            source.Play();
+        }
 
         //StartButton.click += StartPlayback;
     }
