@@ -78,7 +78,7 @@ public class PlaneController : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        gameObject.SetActive(false);
+        TurnOff();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -103,7 +103,8 @@ public class PlaneController : MonoBehaviour
         // Call end of game function
         if (!tutorial)
             gameSettings.gameEnded = true;
-        gameObject.SetActive(false);
+
+        TurnOff();
     }
     // Okay so plane needs to know when line isn't done so it can wait to destroy a line, maybe like .5f secs
     // Maybe set a boolean that a couroutine launched by assign path sets to true
@@ -208,11 +209,26 @@ public class PlaneController : MonoBehaviour
     }
     public void DoneTransition()
     {
+        GetComponent<Collider2D>().isTrigger = false;
         if (gameObject.activeSelf)
         {
-            gameObject.SetActive(false);
+            TurnOff();
         }
         
-        GetComponent<Collider2D>().isTrigger = false;
+        
+    }
+
+    public void TurnOff()
+    {
+        if (activeLine != null)
+        {
+            lineWasAssigned = false;
+            currentPath = null;
+            Destroy(activeLine.gameObject);
+            StopAllCoroutines();
+
+        }
+        _transform.localScale = Vector3.one * gameSettings.defaultPlaneScale;
+        gameObject.SetActive(false);
     }
 }

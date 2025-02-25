@@ -30,6 +30,10 @@ public class CameraZoom : MonoBehaviour
             GameSettings.ZoomTriggered += scaleCamera;
     }
 
+    private void OnDestroy()
+    {
+        zoomedOut = null;
+    }
     /*
     void Update()
     {
