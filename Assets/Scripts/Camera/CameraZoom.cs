@@ -11,7 +11,7 @@ public class CameraZoom : MonoBehaviour
     public float scale;
     public float zoomAmount;
     public bool zooming;
-
+    public bool Tutorial;
     public int zoomLevel;
 
     public static event Action zoomedOut;
@@ -26,7 +26,8 @@ public class CameraZoom : MonoBehaviour
     {
         cam = GetComponent<Camera>();
         settings = FindFirstObjectByType<GameSettings>();
-        GameSettings.ZoomTriggered += scaleCamera;
+        if (!Tutorial)
+            GameSettings.ZoomTriggered += scaleCamera;
     }
 
     /*

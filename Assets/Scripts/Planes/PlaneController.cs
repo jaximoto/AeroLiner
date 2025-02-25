@@ -40,9 +40,12 @@ public class PlaneController : MonoBehaviour
     void Start()
     {
         
+        if (!tutorial)
+        {
+            GameSettings.ZoomTriggered += Transition;
+            CameraZoom.zoomedOut += DoneTransition;
+        }
         
-        GameSettings.ZoomTriggered += Transition;
-        CameraZoom.zoomedOut += DoneTransition;
         rb = GetComponent<Rigidbody2D>();
         
         ApplyColor(colorIndex);
