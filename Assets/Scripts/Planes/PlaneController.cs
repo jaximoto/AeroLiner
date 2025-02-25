@@ -36,6 +36,7 @@ public class PlaneController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         sprite.enabled = true;
         GetComponent<Collider2D>().isTrigger = false;
+        ApplyColor(colorIndex);
     }
     void Start()
     {
@@ -48,7 +49,7 @@ public class PlaneController : MonoBehaviour
         
         rb = GetComponent<Rigidbody2D>();
         
-        ApplyColor(colorIndex);
+        
     }
 
     // Update is called once per frame
@@ -224,10 +225,12 @@ public class PlaneController : MonoBehaviour
         {
             lineWasAssigned = false;
             currentPath = null;
+
             Destroy(activeLine.gameObject);
             StopAllCoroutines();
 
         }
+        currentTargetIndex = 0;
         _transform.localScale = Vector3.one * gameSettings.defaultPlaneScale;
         gameObject.SetActive(false);
     }
