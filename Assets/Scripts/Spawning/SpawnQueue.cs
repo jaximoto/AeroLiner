@@ -32,7 +32,6 @@ public class SpawnQueue : MonoBehaviour
     public float spawnMax;
     void Awake()
     {
-        ranges = new List<range>();
         pool = GetComponent<ObjectPool>();
         spawnArea = GetComponent<SpawnArea>();
         spawnTable = GetComponent<SpawnTable>();
@@ -57,7 +56,9 @@ public class SpawnQueue : MonoBehaviour
         while (spawning)
         {
             SpawnRandom();
-            yield return new WaitForSecondsRealtime(Random.Range(ranges[zoom.zoomLevel].min,ranges[zoom.zoomLevel].max));
+            float randomFloat = Random.Range(ranges[zoom.zoomLevel].min, ranges[zoom.zoomLevel].max);
+            Debug.Log($"Wait between spawns for {randomFloat} seconds");
+            yield return new WaitForSecondsRealtime(randomFloat);
         }
 
         if (!spawning) yield return null;
