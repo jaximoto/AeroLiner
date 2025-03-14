@@ -51,8 +51,8 @@ MonoBehaviour:
   - {r: 0.9725491, g: 0.5058824, b: 0.9960785, a: 1}
   - {r: 0.5058824, g: 0.9960785, b: 0.72156864, a: 1}
   - {r: 0.6666667, g: 0.5058824, b: 0.9960785, a: 1}
-  AngleThreshold: 0.3
-  planeRotationSpeed: 10
+  AngleThreshold: 0.5
+  planeRotationSpeed: 1.2
   defaultPlaneScale: 0.11
   zoomMax: 4
   GameOverUIFadeInDuration: 1
@@ -60,5 +60,5 @@ MonoBehaviour:
   endingGame: 0
   endGameUI: {fileID: 0}
   planeCountUI: {fileID: 0}
-  levelClears: 01000000140000001e00000028000000
+  levelClears: 05000000070000000c00000018000000204e0000
   zoom: {fileID: 0}

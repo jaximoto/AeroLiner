@@ -49,9 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pool:
   - prefab: {fileID: 2927899634893221273, guid: 273395eec7f4c2445b540eba0bbebe88, type: 3}
-    size: 10
-  - prefab: {fileID: 3222158834864023541, guid: 08316913bf51a4a43931d5dcce71c5bb, type: 3}
-    size: 10
+    size: 100
 --- !u!114 &6083234180647044430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef5474576903974483930e2d1c96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ind: {fileID: 0}
   cam: {fileID: 0}
   padd: 2
   spawnRect:
@@ -93,9 +92,15 @@ MonoBehaviour:
   spawns_1:
   - tag: Plane
     size: 10
-  spawns_2: []
-  spawns_3: []
-  spawns_4: []
+  spawns_2:
+  - tag: Plane
+    size: 10
+  spawns_3:
+  - tag: Plane
+    size: 10
+  spawns_4:
+  - tag: Plane
+    size: 10
 --- !u!114 &8555912310357686043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,4 +113,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b64695ae61c2c4fb0aa5cdc607b42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ranges:
+  - min: 4
+    max: 7
+  - min: 4
+    max: 7
+  - min: 4
+    max: 6
+  - min: 4
+    max: 5
+  - min: 3
+    max: 4
+  zoom: {fileID: 0}
   spawnMax: 10

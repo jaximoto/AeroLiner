@@ -2,10 +2,21 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections;
 using static SpawnArea;
+using System.Collections.Generic;
 
 public class SpawnQueue : MonoBehaviour
 {
-    
+
+    [System.Serializable]
+    public class range
+    {
+        public float min;
+        public float max;
+    }
+
+    public List<range> ranges;
+
+
     ObjectPool pool;
     SpawnArea spawnArea;
     SpawnTable spawnTable;
@@ -21,6 +32,7 @@ public class SpawnQueue : MonoBehaviour
     public float spawnMax;
     void Awake()
     {
+        ranges = new List<range>();
         pool = GetComponent<ObjectPool>();
         spawnArea = GetComponent<SpawnArea>();
         spawnTable = GetComponent<SpawnTable>();
@@ -45,7 +57,7 @@ public class SpawnQueue : MonoBehaviour
         while (spawning)
         {
             SpawnRandom();
-            yield return new WaitForSecondsRealtime(Random.Range(2,5 - (zoom.zoomLevel / 2)));
+            yield return new WaitForSecondsRealtime(Random.Range(ranges[zoom.zoomLevel].min,ranges[zoom.zoomLevel].max));
         }
 
         if (!spawning) yield return null;
