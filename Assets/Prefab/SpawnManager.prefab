@@ -115,14 +115,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ranges:
   - min: 4
-    max: 7
-  - min: 4
-    max: 7
-  - min: 4
-    max: 6
-  - min: 4
-    max: 5
+    max: 8
+  - min: 3.75
+    max: 7.75
+  - min: 3.5
+    max: 7.5
+  - min: 3.25
+    max: 7.25
   - min: 3
-    max: 4
+    max: 7
   zoom: {fileID: 0}
   spawnMax: 10
